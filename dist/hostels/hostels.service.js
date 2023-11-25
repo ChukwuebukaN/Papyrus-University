@@ -49,9 +49,27 @@ let HostelsService = class HostelsService {
         if (filter === 'available') {
             return this.prisma.hostel.findMany({ where: { available: true } });
         }
-        else {
+        else if (filter === 'taken') {
             return this.prisma.hostel.findMany({ where: { available: false } });
         }
+    }
+    getStudentsInHostelById(id) {
+        return this.prisma.hostel.findUnique({
+            where: { id },
+            include: {
+                students: true,
+            },
+        });
+    }
+    async updateStudentsInHostelById(id, studentId) {
+        const hostel = await this.getStudentsInHostelById(id);
+        const students = hostel.students;
+        const finalStudents = students.filter((filteredStudent) => filteredStudent.id !== studentId);
+        return console.log(finalStudents);
+        return this.prisma.hostel.update({
+            where: { id },
+            data: finalStudents,
+        });
     }
 };
 exports.HostelsService = HostelsService;

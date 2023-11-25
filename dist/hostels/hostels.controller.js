@@ -41,6 +41,12 @@ let HostelsController = class HostelsController {
     searchHostels(filter) {
         return this.hostelsService.searchHostels(filter);
     }
+    getStudentsInHostelById(id) {
+        return this.hostelsService.getStudentsInHostelById(+id);
+    }
+    updateStudentsInHostelById(id, studentId) {
+        return this.hostelsService.updateStudentsInHostelById(Number(id), Number(studentId));
+    }
 };
 exports.HostelsController = HostelsController;
 __decorate([
@@ -97,6 +103,25 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], HostelsController.prototype, "searchHostels", null);
+__decorate([
+    (0, common_1.Get)(':id/students'),
+    (0, common_1.Header)('content-type', 'application/json'),
+    (0, swagger_1.ApiOkResponse)({ type: hostel_entity_1.HostelEntity }),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], HostelsController.prototype, "getStudentsInHostelById", null);
+__decorate([
+    (0, common_1.Patch)(':id/reassign/:studentId'),
+    (0, common_1.Header)('content-type', 'application/json'),
+    (0, swagger_1.ApiOkResponse)({ type: hostel_entity_1.HostelEntity }),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Param)('studentId')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, String]),
+    __metadata("design:returntype", void 0)
+], HostelsController.prototype, "updateStudentsInHostelById", null);
 exports.HostelsController = HostelsController = __decorate([
     (0, common_1.Controller)('hostels'),
     (0, swagger_1.ApiTags)('hostels'),

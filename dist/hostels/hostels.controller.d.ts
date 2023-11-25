@@ -54,4 +54,26 @@ export declare class HostelsController {
         maximumRooms: number;
         available: boolean;
     }, unknown> & {})[]>;
+    getStudentsInHostelById(id: string): import(".prisma/client").Prisma.Prisma__HostelClient<{
+        students: (import("@prisma/client/runtime").GetResult<{
+            id: number;
+            registrationId: number;
+            password: string;
+            fullName: string;
+            age: number;
+            department: string;
+            roomId: number;
+        }, unknown> & {})[];
+    } & import("@prisma/client/runtime").GetResult<{
+        id: number;
+        hostelName: string;
+        maximumRooms: number;
+        available: boolean;
+    }, unknown> & {}, never, import("@prisma/client/runtime").DefaultArgs>;
+    updateStudentsInHostelById(id: string, studentId: string): Promise<void | (import("@prisma/client/runtime").GetResult<{
+        id: number;
+        hostelName: string;
+        maximumRooms: number;
+        available: boolean;
+    }, unknown> & {})>;
 }

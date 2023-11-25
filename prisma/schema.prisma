@@ -10,23 +10,41 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// model Post {
+//   id      Int    @id
+//   title   String @db.VarChar(200)
+//   content String
+  // id         Int        @id @default(autoincrement())
+  // createdAt  DateTime   @default(now())
+  // title      String
+  // published  Boolean    @default(false)
+  // author     User       @relation(fields: [authorId], references: [id])
+  // authorId   Int
+  // categories Category[] @relation(references: [id])
+
+  // @@unique([authorId, title])
+  // students          Student @relation(onUpdate: Restrict)
+// }
+
 model Hostel {
   id                Int @id @default(autoincrement())
   hostelName        String @unique
   maximumRooms      Int @default(10)
-  available         Boolean  @default(false)
+  available         Boolean  @default(false) 
 
   rooms             Room[]
+  students          Student[]
 }
 
 model Room {
   id                Int @id @default(autoincrement())
   roomName          String @unique
   maximumStudents   Int @default(5)
+
   hostelId          Int @unique
 
-  students          Student[]
   hostels           Hostel @relation(fields: [hostelId], references: [id])
+  students          Student[]
 }
 
 model Student {
@@ -36,8 +54,9 @@ model Student {
   fullName          String
   age               Int
   department        String
+
   roomId            Int @unique
 
-  rooms             Room[]
-  // rooms             Room @relation(fields: [roomId], references: [id])
+  hostels           Hostel@relation(fields: [id], references: [id])
+  rooms             Room @relation(fields: [roomId], references: [id])
 }

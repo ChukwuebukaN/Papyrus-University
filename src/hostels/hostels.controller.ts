@@ -63,4 +63,25 @@ export class HostelsController {
   public searchHostels(@Param('filter') filter: string) {
     return this.hostelsService.searchHostels(filter);
   }
+
+  @Get(':id/students')
+  @Header('content-type', 'application/json')
+  @ApiOkResponse({ type: HostelEntity })
+  getStudentsInHostelById(@Param('id') id: string) {
+    return this.hostelsService.getStudentsInHostelById(+id);
+  }
+
+  @Patch(':id/reassign/:studentId')
+  @Header('content-type', 'application/json')
+  @ApiOkResponse({ type: HostelEntity })
+  updateStudentsInHostelById(
+    @Param('id') id: string,
+    @Param('studentId') studentId: string,
+    // @Body() updateHostelDto: UpdateHostelDto,
+  ) {
+    return this.hostelsService.updateStudentsInHostelById(
+      Number(id),
+      Number(studentId),
+    );
+  }
 }
