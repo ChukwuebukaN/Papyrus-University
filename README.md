@@ -1,3 +1,38 @@
+Introduction to Papyrus University SQL / Prisma Relational Database Management System (RDBMS): 
+
+PROBLEM STATEMENT:
+The university students are about to resume a new session, one of the key arrangements is the hostel allocation. You have been called upon to provide a modern solution to help run this process smoothly. 
+
+The API should have the following functionalities. 
+Each endpoint must require a header parameter of your choice.
+- require a header parameter of your choice. ✅
+
+1. Adding hostels and rooms
+- addHostel endpoint POST ✅
+- addRoom endpoint POST ✅
+
+1. Students' registration with ID, password, fullname, age and department
+- id, password, fullname, age, department  ✅
+
+3.Searching for hostels, including adding filters (available, taken)
+- searchHostel endpoint GET (Search) ✅
+- available filter ✅
+- taken filter ✅
+
+4. Allocate room to student (please factor in number of occupants per room and how many rooms in an hostel. The next available room should be assigned to student)
+- When a student is registered automatically allocate a room to them
+- Each room has a maximum number of students (5) ✅
+- Each hostel has a maximum number of rooms (10) ✅
+- The University has no maximum number of hostels ✅
+
+6. List students allocated the hostels
+- getStudentsInHostel endpoint GET (all students in rooms of hostel) ✅
+
+8. Remove/Reassign students to hostel
+- reassignStudentFromHostel  endpoint PUT (hostel room) ⌛️✅
+
+
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
