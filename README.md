@@ -14,7 +14,7 @@ Each endpoint must require a header parameter of your choice.
 1. Students' registration with ID, password, fullname, age and department
 - id, password, fullname, age, department  ✅
 
-3.Searching for hostels, including adding filters (available, taken)
+3. Searching for hostels, including adding filters (available, taken)
 - searchHostel endpoint GET (Search) ✅
 - available filter ✅
 - taken filter ✅
@@ -28,7 +28,7 @@ Each endpoint must require a header parameter of your choice.
 6. List students allocated the hostels
 - getStudentsInHostel endpoint GET (all students in rooms of hostel) ✅
 
-8. Remove/Reassign students to hostel
+7. Remove/Reassign students to hostel
 - reassignStudentFromHostel  endpoint PUT (hostel room) ⌛️✅
 
 
