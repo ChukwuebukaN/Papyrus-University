@@ -11,7 +11,7 @@ Each endpoint must require a header parameter of your choice.
 - addHostel endpoint POST ✅
 - addRoom endpoint POST ✅
 
-1. Students' registration with ID, password, fullname, age and department
+2. Students' registration with ID, password, fullname, age and department
 - id, password, fullname, age, department  ✅
 
 3. Searching for hostels, including adding filters (available, taken)
@@ -25,10 +25,10 @@ Each endpoint must require a header parameter of your choice.
 - Each hostel has a maximum number of rooms (10) ✅
 - The University has no maximum number of hostels ✅
 
-6. List students allocated the hostels
+5. List students allocated the hostels
 - getStudentsInHostel endpoint GET (all students in rooms of hostel) ✅
 
-7. Remove/Reassign students to hostel
+6. Remove/Reassign students to hostel
 - reassignStudentFromHostel  endpoint PUT (hostel room) ⌛️✅
 
 
